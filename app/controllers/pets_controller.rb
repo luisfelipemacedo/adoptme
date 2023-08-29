@@ -41,7 +41,9 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     redirect_to pets_url, notice: "Pet was successfully destroyed.", status: :see_other
-  end
+    end
+
+
 
   private
 

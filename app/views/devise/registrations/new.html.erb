@@ -28,8 +28,9 @@
                 required: true,
                 input_html: { autocomplete: "address" } %>
     <%= f.input :birthday,
+                as: :string,
                 required: true,
-                input_html: { autocomplete: "birthday" } %>
+                input_html: { data: { controller: "datepicker" }} %>
   </div>
 
   <div class="form-actions">

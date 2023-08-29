@@ -1,15 +1,19 @@
 <div>
   <%= render @pet %>
+  <div class="card-category"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pet.photo.key, height: 300, crop: :fill %>')"
+>
+  </div>
   <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
   <%= link_to "Back to pets", pets_path %>
 
-  <%= button_to "Destroy this pet", @pet, method: :delete %>
+<%= button_to "Destroy this pet", @pet, method: :delete %>
 
-<% if Adoption.where(pet: @pet, owner: current_user).count.positive? %>
-  <p>You already submitted</p>
-<% else %>
-  <%= simple_form_for [@pet, @adoption] do |f| %>
-    <%= f.submit "Adopt", class: "btn btn-success" %>
+  <% if Adoption.where(pet: @pet, owner: current_user).count.positive? %>
+    <p>You already submitted</p>
+  <% else %>
+    <%= simple_form_for [@pet, @adoption] do |f| %>
+      <%= f.submit "Adopt", class: "btn btn-success" %>
+    <% end %>
   <% end %>
-<% end %>
 </div>

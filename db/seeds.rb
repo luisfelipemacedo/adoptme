@@ -1,5 +1,5 @@
-User.destroy_all
 Pet.destroy_all
+User.destroy_all
 
 seller_data = []
 20.times do
@@ -17,7 +17,7 @@ seller_data = []
   seller_data << user
 end
 
-random_pet_category = ["dog", "cat", "reptile", "bird", "rabbit", "rodent", "amphibian", "fish"]
+random_pet_category = %w[dog cat fish bird rodent amphibian reptile others]
 random_pet_breed = ["cur", "gatinho miado", "cachorro de rua", "jacaré do papo amarelo", "nemo","pernalonga"]
 
 

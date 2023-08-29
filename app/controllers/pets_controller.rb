@@ -4,7 +4,9 @@ class PetsController < ApplicationController
     @pets = Pet.all
   end
 
-  def show; end
+  def show
+    @adoption = Adoption.new
+  end
 
   # GET /pets/new
   def new

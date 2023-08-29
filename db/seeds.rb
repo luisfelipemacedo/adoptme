@@ -8,23 +8,25 @@ seller_data = []
   user = User.create!({
     first_name: first,
     last_name: last,
+    address: Faker::Address.street_address,
     email: "#{first[0]}_#{last}@example.com".downcase,
-    passoword: "123123",
-    phone: Faker::PhoneNumber.phone_number
+    password: "123123",
+    phone_number: Faker::PhoneNumber.phone_number,
+    birthday: Faker::Date.between(from: 40.years.ago, to: 18.years.ago)
   })
   seller_data << user
 end
 
 random_pet_category = ["dog", "cat", "reptile", "bird", "rabbit", "rodent", "amphibian", "fish"]
-random_pet_breed = ["cur", "gatinho miado", "cachorro de rua", "jacaré do papo amarelo"]
+random_pet_breed = ["cur", "gatinho miado", "cachorro de rua", "jacaré do papo amarelo", "nemo","pernalonga"]
 
 
 20.times do
   pet_data = {
     name: Faker::Name.first_name,
     category: random_pet_category.sample,
-    date_of_birth: Faker::Date.between(from: 8.years.ago, to: Date.today),
-    description: Faker::Name.last_name,
+    birthday: Faker::Date.between(from: 8.years.ago, to: Date.today),
+    description: Faker::ChuckNorris.fact,
     breed: random_pet_breed.sample
   }
   pet = Pet.new(pet_data)

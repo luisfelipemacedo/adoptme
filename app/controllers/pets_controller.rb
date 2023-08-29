@@ -17,6 +17,7 @@ class PetsController < ApplicationController
   # POST /pets
   def create
     @pet = Pet.new(pet_params)
+    @pet.seller = current_user
 
     if @pet.save
       redirect_to @pet, notice: "pet was successfully created."
@@ -44,7 +45,7 @@ class PetsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_pet
-    @pet = pet.find(params[:id])
+    @pet = Pet.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

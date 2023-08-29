@@ -1,0 +1,16 @@
+<%= simple_form_for(@pet) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :birthday %>
+    <%= f.input :description %>
+    <%= f.input :category, collection:["dog", "cat", "fish", "bird", "rodent", "amphibian", "reptile", "others"] %>
+    <%= f.input :breed %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

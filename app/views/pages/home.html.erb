@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-black">
+    <h1>Last updates</h1>
+    <h3 class="typed-js" data-controller="typed-js"></h3>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="text-center text-black" justify-content-between mb-3">
+
+<div>
+    <h3 class="mb-0">News Post</h3>
+     <%= link_to " Go to the newest pets", pets_path %>
+</div>
+
+  </div>
+  <div class="container py-5">
+  <div class="text-center text-black" justify-content-between mb-3">
+    <h3 class="mb-0"> Most favorited </h3>
+     <%= link_to " See the most pet favorited", pets_path %>
+
+  </div>
+  <div class="container py-5">
+  <div class="text-center text-black" justify-content-between mb-3">
+    <h3 class="mb-0"> The Oldest Post</h3>
+     <%= link_to " Go to the Oldest post pets", pets_path %>
+
+  </div>
+  <div class="container py-5">
+  <div class="text-center text-black" justify-content-between mb-3">
+    <h3 class="mb-0">Last adopted</h3>
+     <%= link_to " Go to new adoption to pets", pets_path %>
+
+  </div>

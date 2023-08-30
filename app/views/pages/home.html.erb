@@ -1,26 +1,108 @@
+
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black">
     <h1>Last updates</h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
+
+</div>
+
 <div class="container py-5">
-  <div class="text-center text-black" justify-content-between mb-3">
+
+  <div class="text-center text-black">
     <h3 class="mb-0">News Post</h3>
-
+    <%= link_to "Go to the newest pets", pets_path %>
   </div>
-  <div class="container py-5">
-  <div class="text-center text-black" justify-content-between mb-3">
-    <h3 class="mb-0">last adopted</h3>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+  <% @pets.each_with_index do |pet, index| %>
+        <div class="carousel-item  <%=  'active' if index == 0   %>">
+          <%= cl_image_tag pet.photo.key, alt: "1 ", class: "carousel-img" %>
+        </div>
+  <% end %>
+      </div>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+    </div>
+</div>
 
-  </div>
-  <div class="container py-5">
-  <div class="text-center text-black" justify-content-between mb-3">
-    <h3 class="mb-0"> The Oldest Post</h3>
+<div class="container py-5">
 
+<div class="text-center text-black">
+    <h3 class="mb-0"> Most Favorited</h3>
+    <%= link_to "Go to the newest pets", pets_path %>
   </div>
-  <div class="container py-5">
-  <div class="text-center text-black" justify-content-between mb-3">
-    <h3 class="mb-0">last adopted</h3>
+    <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+  <% @pets.each_with_index do |pet, index| %>
+        <div class="carousel-item  <%=  'active' if index == 8   %>">
+          <%= cl_image_tag pet.photo.key, alt: "1 ", class: "carousel-img" %>
+        </div>
+  <% end %>
+      </div>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+    </div>
+</div>
 
+<div class="container py-5">
+
+  <div class="text-center text-black">
+    <h3 class="mb-0">The Oldest Post</h3>
+    <%= link_to "Go to the newest pets", pets_path %>
   </div>
+    <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+  <% @pets.each_with_index do |pet, index| %>
+        <div class="carousel-item  <%=  'active' if index == 1  %>">
+          <%= cl_image_tag pet.photo.key, alt: "1 ", class: "carousel-img" %>
+        </div>
+  <% end %>
+      </div>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+    </div>
+</div>
+
+<div class="container py-5">
+  <div class="text-center text-black">
+    <h3 class="mb-0">Last adopted</h3>
+    <%= link_to "Go to new adoption to pets", pets_path %>
+  </div>
+  <div id="carouselExampleControls4" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+   <% @pets.each_with_index do |pet, index| %>
+        <div class="carousel-item  <%=  'active' if index == 4   %>">
+          <%= cl_image_tag pet.photo.key, alt: "1 ", class: "carousel-img" %>
+        </div>
+  <% end %>
+  </div>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  </div>
+</div>

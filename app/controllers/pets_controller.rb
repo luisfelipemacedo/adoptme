@@ -41,7 +41,9 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     redirect_to pets_url, notice: "Pet was successfully destroyed.", status: :see_other
-  end
+    end
+
+
 
   private
 
@@ -52,6 +54,6 @@ class PetsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def pet_params
-    params.require(:pet).permit(:name, :birthday, :description, :category, :breed)
+    params.require(:pet).permit(:name, :birthday, :description, :category, :breed, :photo)
   end
 end

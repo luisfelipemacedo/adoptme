@@ -6,6 +6,8 @@ class PetsController < ApplicationController
 
   def show
     @adoption = Adoption.new
+    @adoptions_users = Adoption.where(pet: @pet)
+    @adoptions_count = Adoption.where(pet: @pet, owner: current_user).count
   end
 
   # GET /pets/new
@@ -41,7 +43,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     redirect_to pets_url, notice: "Pet was successfully destroyed.", status: :see_other
-    end
+  end
 
 
 

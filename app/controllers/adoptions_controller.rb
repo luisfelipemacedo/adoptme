@@ -11,8 +11,9 @@ class AdoptionsController < ApplicationController
     @adoption.status = false
     @adoption.pet = @pet
     @adoption.owner = current_user
-    @adoption.save!
-    redirect_to pet_path(@pet), notice: "Request Received"
+    if @adoption.save!
+      redirect_to pet_path(@pet), notice: "Request Received"
+    end
   end
 
   def destroy
@@ -25,10 +26,6 @@ class AdoptionsController < ApplicationController
   def adoption_params
     params.require(:adoption).permit(:status, :adopter_id, :pet_id)
   end
-
-  # def set_bookmark
-  #   @bookmark = Bookmark.find(params[:id])
-  # end
 
   def set_pet
     @pet = Pet.find(params[:pet_id])

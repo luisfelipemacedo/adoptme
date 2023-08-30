@@ -1,15 +1,24 @@
 <div>
   <%= render @pet %>
-  <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
-  <%= link_to "Back to pets", pets_path %>
+  <%= link_to "Edit this pet", edit_pet_path(@pet) if @pet.seller == current_user %> |
+  <%= link_to "Back to pets", pets_path %> |
+
   <% if @pet.seller == current_user  %>
     <%= button_to "Destroy this pet", @pet, method: :delete %>
+  <% else %>
+   <% if @adoptions_count.positive? %>
+    <p>You already submitted</p>
+  <% else %>
+    <%= simple_form_for [@pet, @adoption] do |f| %>
+      <%= f.submit "Adopt", class: "btn btn-success" %>
+    <% end %>
   <% end %>
-<% if Adoption.where(pet: @pet, owner: current_user).count.positive? %>
-  <p>You already submitted</p>
-<% else %>
-  <%= simple_form_for [@pet, @adoption] do |f| %>
-    <%= f.submit "Adopt", class: "btn btn-success" %>
+
+  <% if @pet.seller == current_user %>
+    <% @adoptions_users.each do |adoption| %>
+      <%= link_to adoption.owner.first_name, profile_path(adoption.owner) %>
+    <%end %>
   <% end %>
-<% end %>
+
+  <% end %>
 </div>

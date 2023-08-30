@@ -2,9 +2,10 @@
   <%= render @pet %>
   <%= link_to "Edit this pet", edit_pet_path(@pet) if @pet.seller == current_user %> |
   <%= link_to "Back to pets", pets_path %> |
+
   <% if @pet.seller == current_user  %>
     <%= button_to "Destroy this pet", @pet, method: :delete %>
-  <% end %>
+  <% else %>
 <% if Adoption.where(pet: @pet, owner: current_user).count.positive? %>
   <p>You already submitted</p>
 <% else %>
@@ -12,4 +13,6 @@
     <%= f.submit "Adopt", class: "btn btn-success" %>
   <% end %>
 <% end %>
+<% end %>
+
 </div>

@@ -23,5 +23,6 @@
     <strong>Breed:</strong>
     <%= pet.breed %>
   </p>
-
-
+  <% if pet.photo.attached? %>
+    <%= cl_image_tag pet.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>

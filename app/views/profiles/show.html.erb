@@ -1,0 +1,8 @@
+<div class = "container d-flex flex-column align-items-center">
+<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class:"rounded-circle", width:"200", height:"200"%>
+<h1> Name : <%= @user.first_name%> <%= @user.last_name%> </h1>
+<h2> Phone Number: <%= @user.phone_number %></h2>
+<h2> Email: <%= @user.email %></h2>
+<h2> Birthday: <%= @user.birthday %> (yy/mm/dd)</h2>
+  <%= link_to "Back to my pet", :back %>
+</div>

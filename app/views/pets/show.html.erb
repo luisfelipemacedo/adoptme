@@ -19,10 +19,20 @@
       <% end %>
     <% end %>
   <% end %>
+</div>
 
+<div>
   <% if @pet.seller == current_user %>
-    <% @adoptions_users.each do |adoption| %>
-      <p>Adopted by: <%= link_to adoption.owner.first_name, profile_path(adoption.owner) %></p>
-    <% end %>
+    <p>Adoption Request(s):</p>
+        <% if @adoptions_approved.positive? %>
+          <p>This pet has been adopted!</p>
+        <% else %>
+          <% @adoptions_users.each do |adoption| %>
+            <li>
+              <%= link_to adoption.owner.first_name, profile_path(adoption.owner), class: "btn btn-outline-dark" %>
+              <%= link_to "Approve?", adoption_path(adoption), data: {turbo_method: :patch}, class: "btn btn-success" %>
+            </li>
+          <% end %>
+      <% end %>
   <% end %>
 </div>

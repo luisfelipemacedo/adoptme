@@ -27,7 +27,7 @@
   <% if @pet.seller == current_user %>
     <p>Adoption Request(s):</p>
         <% if @adoptions_approved.positive? %>
-          <p>This pet has been adopted!</p>
+          <p>This pet has been adopted!!!</p>
         <% else %>
           <% @adoptions_users.each do |adoption| %>
             <li>

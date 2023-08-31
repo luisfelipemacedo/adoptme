@@ -2,6 +2,7 @@ class PetsController < ApplicationController
   before_action :set_pet, only: %i[show edit update destroy]
   def index
     @pets = Pet.all
+    @pets = Pet.search_pets(params[:query]) if params[:query].present?
   end
 
   def show

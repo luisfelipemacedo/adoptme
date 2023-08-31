@@ -31,6 +31,10 @@
                 as: :string,
                 required: true,
                 input_html: { data: { controller: "datepicker" }} %>
+    <%= f.input :photo,
+                as: :file,
+                required: false,
+                input_html: { autocomplete: "photo" } %>
   </div>
 
   <div class="form-actions">

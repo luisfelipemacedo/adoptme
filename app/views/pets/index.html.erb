@@ -24,6 +24,9 @@
                 <h5 class="card-title"><%= pet.name %></h5>
                 <%= cl_image_tag pet.photo.key, alt: "1", class: "img-index" %>
                 <%= link_to "Show this pet", pet, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2 justify-content-center' %>
+                <% if pet.adopted? %>
+                  <p style="color: red">Adopted!</p>
+                 <% end %>
               </div>
             </div>
           </div>

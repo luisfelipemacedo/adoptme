@@ -11,4 +11,7 @@ class Pet < ApplicationRecord
       using: {
       tsearch: { prefix: true }
       }
+  def adopted?
+    adoptions.where(status: true).exists?
+  end
 end

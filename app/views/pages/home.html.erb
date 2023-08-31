@@ -12,7 +12,7 @@
 
   <div class="text-center text-black">
     <h3 class="mb-0">News Post</h3>
-    <%= link_to "Go to the newest pets", pets_path %>
+    <%= link_to "Go to the newest pets", pets_path, class: 'btn btn-success align-items-end m-3' %>
   </div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -36,13 +36,15 @@
 <div class="container py-5">
 
 <div class="text-center text-black">
+
     <h3 class="mb-0"> Most Favorited</h3>
-    <%= link_to "Go to the newest pets", pets_path %>
+    <%= link_to "Go to the most favorite pets", pets_path, class: 'btn btn-success m-3' %>
   </div>
     <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
   <% @pets.each_with_index do |pet, index| %>
         <div class="carousel-item  <%=  'active' if index == 8   %>">
+
           <%= cl_image_tag pet.photo.key, alt: "1 ", class: "carousel-img" %>
         </div>
   <% end %>
@@ -62,7 +64,7 @@
 
   <div class="text-center text-black">
     <h3 class="mb-0">The Oldest Post</h3>
-    <%= link_to "Go to the newest pets", pets_path %>
+    <%= link_to "Go to the oldest pets", pets_path , class: 'btn btn-success m-3' %>
   </div>
     <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -86,7 +88,7 @@
 <div class="container py-5">
   <div class="text-center text-black">
     <h3 class="mb-0">Last adopted</h3>
-    <%= link_to "Go to new adoption to pets", pets_path %>
+    <%= link_to "See who have new friends", pets_path, class: 'btn btn-success btn-sm m-3'  %>
   </div>
   <div id="carouselExampleControls4" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">

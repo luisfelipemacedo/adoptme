@@ -1,8 +1,23 @@
-<div class = "container d-flex flex-column align-items-center">
-<%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class:"rounded-circle", width:"200", height:"200"%>
-<h1> Name : <%= @user.first_name%> <%= @user.last_name%> </h1>
-<h2> Phone Number: <%= @user.phone_number %></h2>
-<h2> Email: <%= @user.email %></h2>
-<h2> Birthday: <%= @user.birthday %> (yy/mm/dd)</h2>
-  <%= link_to "Back to my pet", :back %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="profile-container text-left p-4">
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-image rounded-circle", width: "200", height: "200" %>
+        <h1 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h1>
+        <div class="profile-details">
+          <p class="profile-info">Phone Number: <%= @user.phone_number %></p>
+          <p class="profile-info">Email: <%= @user.email %></p>
+          <p class="profile-info">Birthday: <%= @user.birthday %> (yy/mm/dd)</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="profile-link-box p-4 text-center">
+        <h3 class="mb-3">Connect with me</h3>
+        <a href="#" class="btn btn-primary">Send Message</a>
+        <a href="#" class="btn btn-secondary mt-2">Add Friend</a>
+        <a href="#" class="btn btn-info mt-2">Follow</a>
+      </div>
+    </div>
+  </div>
 </div>

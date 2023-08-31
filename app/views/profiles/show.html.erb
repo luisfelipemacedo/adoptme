@@ -8,6 +8,10 @@
           <p class="profile-info">Phone Number: <%= @user.phone_number %></p>
           <p class="profile-info">Email: <%= @user.email %></p>
           <p class="profile-info">Birthday: <%= @user.birthday %> (yy/mm/dd)</p>
+          <% if current_user != @user %>
+          <%= link_to "Back to my pet", :back , class: "btn btn-success" %>
+          <%end %>
+
         </div>
       </div>
     </div>

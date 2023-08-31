@@ -9,6 +9,7 @@ class PetsController < ApplicationController
     @adoption = Adoption.new
     @adoptions_users = Adoption.where(pet: @pet)
     @adoptions_count = Adoption.where(pet: @pet, owner: current_user).count
+    @adoptions_approved = Adoption.where(pet: @pet, status: true).count
   end
 
   # GET /pets/new

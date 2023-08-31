@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :pets do
     resources :adoptions, only: %i[new create]
   end
+  resources :adoptions, only: %i[update destroy]
   # Defines the root path route ("/")
   # root "articles#index"
   get "users/:id", to: "profiles#show", as: "profile"
+  get "aboutus", to: "profiles#display", as: "aboutus"
 end

@@ -8,12 +8,17 @@ class AdoptionsController < ApplicationController
 
   def create
     @adoption = Adoption.new
-    @adoption.status = false
     @adoption.pet = @pet
     @adoption.owner = current_user
     if @adoption.save!
       redirect_to pet_path(@pet), notice: "Request Received"
     end
+  end
+
+  def update
+    @adoption = Adoption.find(params[:id])
+    @adoption.update(status: true)
+    redirect_to pet_path(@adoption.pet), notice: "Adoption Approved!"
   end
 
   def destroy

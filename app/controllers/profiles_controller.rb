@@ -9,4 +9,6 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def display
+  end
 end

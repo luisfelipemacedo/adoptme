@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "users/:id", to: "profiles#show", as: "profile"
+  get "aboutus", to: "profiles#display", as: "aboutus"
 end

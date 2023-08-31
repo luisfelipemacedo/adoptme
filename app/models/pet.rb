@@ -5,4 +5,10 @@ class Pet < ApplicationRecord
   has_one_attached :photo
   validates :name, :category, :description, :breed, :photo, presence: true
   validates :category, inclusion: { in: CATEGORIES }
+  include PgSearch::Model
+  pg_search_scope :search_pets,
+    against: [ :category, :breed ],
+      using: {
+      tsearch: { prefix: true }
+      }
 end

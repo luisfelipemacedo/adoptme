@@ -1,20 +1,51 @@
-<%= simple_form_for(@pet) do |f| %>
+<%= simple_form_for(@pet, html: { class: 'custom-form' }) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, label: 'Pet Name' %>
     <%= f.input :birthday,
                 as: :string,
                 required: true,
-                input_html: { data: { controller: "datepicker" }} %>
-    <%= f.input :description %>
-    <%= f.input :category, collection:["dog", "cat", "fish", "bird", "rodent", "amphibian", "reptile", "others"] %>
-    <%= f.input :breed %>
-    <%= f.input :photo, as: :file %>
+                label: 'Birthday',
+                input_html: { data: { controller: 'datepicker' }} %>
+    <%= f.input :description, label: 'Description', input_html: { rows: 4 } %>
+    <%= f.input :category, label: 'Category', collection: ['dog', 'cat', 'fish', 'bird', 'rodent', 'amphibian', 'reptile', 'others'] %>
+    <%= f.input :breed, label: 'Breed' %>
+    <%= f.input :photo, as: :file, label: 'Pet Photo' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<style>
+.custom-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+</style>

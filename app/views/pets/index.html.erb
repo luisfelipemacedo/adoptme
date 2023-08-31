@@ -2,9 +2,19 @@
   <div class="row justify-content-end">
     <div class="col-md-9">
       <p style="color: green"><%= notice %></p>
-
       <h1 class="text-center">Pets</h1>
-
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: pets_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "e.g Category, Breed"
+              %>
+            <%= submit_tag "Search", name: "", class: "btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
       <div id="pets" class="row">
         <%= link_to "Add a new pet", new_pet_path, class: 'btn btn-success m-2' %>
         <% @pets.each do |pet| %>
@@ -12,7 +22,7 @@
             <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
               <div class="card-body">
                 <h5 class="card-title"><%= pet.name %></h5>
-                <%= cl_image_tag pet.photo.key, alt: " ", class: "img-index" %>
+                <%= cl_image_tag pet.photo.key, alt: "1", class: "img-index" %>
                 <%= link_to "Show this pet", pet, class: 'btn btn-outline-success btn-sm center d-flex align-items-end m-2' %>
               </div>
             </div>

@@ -1,28 +1,30 @@
 <div class="container mt-5">
  <div class="d-flex justify-content-center">
-    <div class="card" style="width: 28rem;">
-    <div class="card" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1);">
+    <div class="card m-5" style="box-shadow: 2px 4px 4px rgba(0, 0, 2, 0.1); width: 12rem;">
       <div class="card-body">
-  <%= render @pet %>
-  <div class="d-flex justify-content-between mb-3">
-  <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-primary" if @pet.seller == current_user %>
-  <%= link_to "Back to pets", pets_path, class: "btn btn-success" %>
+        <%= render 'pet', pet: @pet  %>
+        <div class="d-flex justify-content-center mb-3">
+          <%= link_to "Back to pets", pets_path, class: "btn btn-success m-3" %>
+          <% if @pet.seller == current_user %>
+            <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-primary m-3" %>
+            <%= button_to "Destroy this pet", @pet, method: :delete, class: "btn btn-danger m-3", data: { confirm: "Are you sure?" } %>
+          <% else %>
+            <% if @adoptions_count.positive? %>
+              <p>You already submitted an adoption request</p>
+            <% else %>
+              <%= simple_form_for [@pet, @adoption] do |f| %>
+                <%= f.submit "Adopt", class: "btn btn-success m-3" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <% if @pet.seller == current_user %>
+          <% @adoptions_users.each do |adoption| %>
+            <p>Adopted by: <%= link_to adoption.owner.first_name, profile_path(adoption.owner) %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <% if @pet.seller == current_user %>
-    <%= button_to "Destroy this pet", @pet, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
-  <% else %>
-    <% if @adoptions_count.positive? %>
-      <p>You already submitted an adoption request</p>
-    <% else %>
-      <%= simple_form_for [@pet, @adoption] do |f| %>
-        <%= f.submit "Adopt", class: "btn btn-success" %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if @pet.seller == current_user %>
-    <% @adoptions_users.each do |adoption| %>
-      <p>Adopted by: <%= link_to adoption.owner.first_name, profile_path(adoption.owner) %></p>
-    <% end %>
-  <% end %>
 </div>

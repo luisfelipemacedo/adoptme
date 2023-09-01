@@ -1,5 +1,49 @@
+<div class="container card-container">
+  <div class="card" style="width: 18rem;">
+    <%= image_tag "card1.jpg", class: "card-img-top" %>
+    <div class="card-body">
+      <h5>Find your pet</h5>
+      <p class="card-text">Visit a Adopt-me that has dedicated adoption space. There you will meet the pets of NGOs
+      partner protectors to create the perfect connection with a dog,
+      cat or others pets looking for a new home. Check the list of stores here.</p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <%= image_tag "card2.jpg", class: "card-img-top" %>
+    <div class="card-body">
+      <h5>Interest Form</h5>
+      <p class="card-text">Make the interview on the spot in the stores
+      with an NGO volunteer/protector. If there is no volunteer present, no problem,just fill
+      out the interest form that we provide here and the NGO/protector will contact you within 48 hours..</p>
+    </div>
+  </div>
+
+   <div class="card" style="width: 18rem;">
+    <%= image_tag "card3.png", class: "card-img-top" %>
+    <div class="card-body">
+      <h5>Interest Form</h5>
+      <p class="card-text">Make the interview on the spot in the stores
+      with an NGO volunteer/protector. If there is no volunteer present, no problem, just fill
+       out the interest form that we provide here and the NGO/protector will contact you within 48 hours.</p>
+    </div>
+  </div>
+
+   <div class="card" style="width: 18rem;">
+    <%= image_tag "card4.jpg", class: "card-img-top" %>
+    <div class="card-body">
+      <h5>Complete Adoption</h5>
+      <p class="card-text">If approved right away by the NGO volunteer/protector, you can now
+       take your pet home! If you submitted the form online,wait for contact and approval. With everything right,
+       you pick  up your pet at a Petz store on the day agreed with the NGO/protector.</p>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="container py-5 background-green mb-5">
+
   <div class="cover mb-4 d-flex align-items-center justify-content-center">
     <div class="text-center text-black">
       <h3 class="typed-js" data-controller="typed-js"></h3>
@@ -10,11 +54,13 @@
   <div class="carrosel-card">
     <div class="text-center text-black">
       <h3 class="mb-0">News Post</h3>
-      <%= link_to "Go to the newest pets", pets_path, class: 'btn btn-success align-items-end m-3' %>
+      <%= link_to "Go to the newest pets", pets_path, class: 'btn btn-outline-success btn-sm center m-3' %>
     </div>
 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+
       <div class="carousel-inner">
+
         <% @pets.each_with_index do |pet, index| %>
           <div class="carousel-item  <%=  'active' if index == 0   %>">
             <%= cl_image_tag pet.photo.key, alt: "1 ", class: "carousel-img" %>
@@ -35,7 +81,7 @@
   <div class="carrosel-card ">
     <div class="text-center text-black">
       <h3 class="mb-0"> Most Favorited</h3>
-      <%= link_to "Go to the most favorite pets", pets_path, class: 'btn btn-success m-3' %>
+      <%= link_to "Go to the most favorite pets", pets_path, class: 'btn btn-outline-success btn-sm center m-3' %>
     </div>
     <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -59,7 +105,7 @@
   <div class="carrosel-card ">
     <div class="text-center text-black">
       <h3 class="mb-0">The Oldest Post</h3>
-      <%= link_to "Go to the oldest pets", pets_path , class: 'btn btn-success m-3' %>
+      <%= link_to "Go to the oldest pets", pets_path , class: 'btn btn-outline-success btn-sm center m-3' %>
     </div>
     <div id="carouselExampleControls3" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -86,7 +132,7 @@
 
     <div class="text-center text-black">
       <h3 class="mb-0">Last adopted</h3>
-      <%= link_to "See who have new friends", pets_path, class: 'btn btn-success btn-sm m-3'  %>
+      <%= link_to "See who have new friends", pets_path, class: 'btn btn-outline-success btn-sm center m-3'  %>
     </div>
     <div id="carouselExampleControls4" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">

@@ -4,16 +4,16 @@
       <div class="card-body mb-4">
         <%= render @pet %>
         <div class="d-flex justify-content-between mb-3">
-          <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-primary" if @pet.seller == current_user %>
-          <%= link_to "Back to pets", pets_path, class: "btn btn-success" %>
+          <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-outline-primary btn-sm " if @pet.seller == current_user %>
+          <%= link_to "Back to pets", pets_path, class: "btn btn-outline-success btn-sm center m-3" %>
           <% if @pet.seller == current_user %>
-            <%= button_to "Destroy this pet", @pet, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+            <%= button_to "Destroy this pet", @pet, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: "Are you sure?" } %>
           <% else %>
             <% if @adoptions_count.positive? %>
               <p>You already submitted an adoption request</p>
             <% else %>
               <%= simple_form_for [@pet, @adoption] do |f| %>
-                <%= f.submit "Adopt", class: "btn btn-success" %>
+                <%= f.submit "Adopt", class: "btn btn-outline-success btn-sm center m-3" %>
               <% end %>
             <% end %>
           <% end %>
@@ -32,7 +32,7 @@
           <% @adoptions_users.each do |adoption| %>
             <li>
               <%= link_to adoption.owner.first_name, profile_path(adoption.owner), class: "btn btn-outline-dark" %>
-              <%= link_to "Approve?", adoption_path(adoption), data: {turbo_method: :patch}, class: "btn btn-success" %>
+              <%= link_to "Approve?", adoption_path(adoption), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
             </li>
           <% end %>
       <% end %>

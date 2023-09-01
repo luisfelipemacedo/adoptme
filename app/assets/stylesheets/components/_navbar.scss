@@ -7,6 +7,26 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand i {
+  // margin-left: 30px;
+}
+
+.otter-logo {
+  font-size: 40px;
+}
+
+.logo-text {
+  margin-bottom: 0;
+  margin-left: 10px;
+  color: #fff;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.navbar-links-box {
+  min-width: 240px;
+  text-align: end;
+}
+
+.width-250 {
+ width: 250px;
 }

@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-4">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand d-flex" do %>
+    <%= link_to root_path, class: "navbar-brand d-flex width-250" do %>
       <i class="otter-logo fa-solid fa-otter" style="color: #ffffff;"></i>
       <h2 class="logo-text ">Adopt-me</h2>
     <% end %>
@@ -40,8 +40,8 @@
   </div>
 </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse width-250" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto w-100  d-flex justify-content-end mr-30px">
         <% if user_signed_in? %>
 
           <li class="nav-item dropdown">

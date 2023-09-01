@@ -4,10 +4,10 @@
       <div class="card-body mb-4">
         <%= render @pet %>
         <div class="d-flex justify-content-between mb-3">
-          <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-outline-primary btn-sm " if @pet.seller == current_user %>
+          <%= link_to "Edit this pet", edit_pet_path(@pet), class: "btn btn-outline-primary btn-sm m-3" if @pet.seller == current_user %>
           <%= link_to "Back to pets", pets_path, class: "btn btn-outline-success btn-sm center m-3" %>
           <% if @pet.seller == current_user %>
-            <%= button_to "Destroy this pet", @pet, method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: "Are you sure?" } %>
+            <%= button_to "Destroy this pet", @pet, method: :delete, class: "btn btn-outline-danger btn-sm m-3", data: { confirm: "Are you sure?" } %>
           <% else %>
             <% if @adoptions_count.positive? %>
               <p>You already submitted an adoption request</p>
@@ -19,22 +19,22 @@
           <% end %>
         </div>
       </div>
+      </div>
     </div>
-  </div>
-</div>
-
-<div>
-  <% if @pet.seller == current_user %>
-    <p>Adoption Request(s):</p>
-        <% if @adoptions_approved.positive? %>
-          <p>This pet has been adopted!</p>
-        <% else %>
-          <% @adoptions_users.each do |adoption| %>
-            <li>
-              <%= link_to adoption.owner.first_name, profile_path(adoption.owner), class: "btn btn-outline-dark" %>
-              <%= link_to "Approve?", adoption_path(adoption), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
-            </li>
-          <% end %>
+    <% if @pet.seller == current_user %> <!-- Only render this block if current user is the seller -->
+    <div class="requests">
+      <p>Adoption Request(s):</p>
+      <% if @adoptions_approved.positive? %>
+        <p>This pet has been adopted!</p>
+      <% else %>
+        <% @adoptions_users.each do |adoption| %>
+          <li>
+            <%= link_to adoption.owner.first_name, profile_path(adoption.owner), class: "btn btn-outline-dark" %>
+            <%= link_to "Approve?", adoption_path(adoption), data: {turbo_method: :patch}, class: "btn btn-outline-success btn-sm center m-3" %>
+          </li>
+        <% end %>
       <% end %>
+    </div>
   <% end %>
 </div>
+  </div>

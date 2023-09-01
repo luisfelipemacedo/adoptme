@@ -8,13 +8,14 @@
   color: white;
 }
 .p{
-  
+
 }
 
 .card-container{
   margin: 40px auto;
   display: flex ;
   gap: 20px;
+  justify-content: space-between;
 }
 .card{
   background-color: #fff;

@@ -47,9 +47,9 @@
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user.photo.key? %>
-              <%= cl_image_tag current_user.photo.key , class: "avatar", alt: "dropdown menu" %>
+              <%= cl_image_tag current_user.photo.key , class: "avatar", alt: "dropdown menu", width: 40, height: 40 %>
             <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+              <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541", class: "avatar", alt: "dropdown menu" %>
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

@@ -2,7 +2,11 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="profile-container text-left p-4">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-image rounded-circle", width: "200", height: "200" %>
+       <% if current_user.photo.attached? %>
+        <%= cl_image_tag current_user.photo.key, class: "profile-image rounded-circle", width: "200", height: "200", alt: "dropdown menu" %>
+       <% else %>
+        <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541", class: "profile-image rounded-circle", width: "200", height: "200" %>
+       <% end %>
         <h1 class="profile-name"><%= @user.first_name %> <%= @user.last_name %></h1>
         <div class="profile-details">
           <p class="profile-info">Phone Number: <%= @user.phone_number %></p>
@@ -11,7 +15,6 @@
           <% if current_user != @user %>
           <%= link_to "Back to my pet", :back , class: "btn btn-success" %>
           <%end %>
-
         </div>
       </div>
     </div>

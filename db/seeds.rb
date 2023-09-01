@@ -3,6 +3,27 @@ require "open-uri"
 Pet.destroy_all
 User.destroy_all
 
+user_pics = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHDRlp-KGr_M94k_oor4Odjn2UzbAS7n1YoA&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLDk_pGSeCU1lVzSpFsq2KZrFFgtBnVIUZ5i9HGLI1tx3h85nGsF7tTiEg1vf1Ygf3SPs&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRROt7YUKa7excpJt4CR59ZwHzhWDfV1mr0eQ&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYH_VDaGfxQ_cPhkgDPyoxXJgnnKHzEw7kdg&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7TiVjnL2ao3BUold9yvBjJODzTJfOyar7w&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8kiSH5ZSAcVoj3tAQQDoP_ux0sSricMyUg&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUEfuXC-ToT_s9eNQ7uyDihU19WD-oJ9W20A&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6wgX3GXOmzqEQY49Kbc-UkeDkI5HwW2chw&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl6olRtD4wNmjF1K-eCgdUdE0x0cRIKUL5-w&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu10KZdnx4WAc2B3k1tt_m_HbnnhqzCOhrUA&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4m5APM4w-uVWMPR9nKN2pM6bTjUqoNP8wPQ&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcX3ZmuppOa1KhiPaTIAZTMjt2UpiYA9QFPEUHiIJoZ5b6yCa2r_F29nNAyiKUQxJAUwo&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG-3EhTFKxDhS_dch3tfVTyWWiQdWeWmUCVQ&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROGoqApAB56HbWYk24nXCx2q1uKZ3FkHULuA&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwCOd4IfWspXRXmtkzJox9mk_vnYwYrD8Emg&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcmG5F-EgBcEy6edWK0KjpOR2Lx2OkzkZR-kHjYWuq8g3FEH4J4c6IvTdIo4-VUc10mSE&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR35qan4uSCGYHR4SPq3sEuGcLCwFSaKowjMA&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQRermfSqWhyTuegHdaKDnQpxZWbFnhMFahA&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR1pJog_G22VXN0T2JbehGd04hklrFBIImCg&usqp=CAU",
+             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpFreAtrOzdfbsrEHLCtHyBDY4x80z6RBeVA&usqp=CAU"]
+
 seller_data = []
 20.times do
   first = Faker::Name.first_name
@@ -16,6 +37,11 @@ seller_data = []
     phone_number: Faker::PhoneNumber.phone_number,
     birthday: Faker::Date.between(from: 40.years.ago, to: 18.years.ago)
   })
+
+  file = URI.open(user_pics.shuffle!.pop)
+  user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+  user.save
+
   seller_data << user
   puts user.email
 end

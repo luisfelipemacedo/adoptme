@@ -14,4 +14,12 @@ class Pet < ApplicationRecord
   def adopted?
     adoptions.where(status: true).exists?
   end
+
+  def age
+    return unless birthday
+
+    age = Date.today.year - birthday.year
+    age -= 1 if Date.today < birthday + age.years
+    age
+  end
 end

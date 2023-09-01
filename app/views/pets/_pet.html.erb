@@ -1,12 +1,12 @@
 
-  <p>
-    <strong>Name:</strong>
-    <%= pet.name %>
-  </p>
+  <H2>
+   <%= pet.name %>
+  </H2>
 
   <p>
     <strong>Birthday:</strong>
-    <%= pet.birthday %>
+    <%= pet.birthday.strftime("%B %d, %Y") %>
+    (<%= pet.age %> years old)
   </p>
 
   <p>
